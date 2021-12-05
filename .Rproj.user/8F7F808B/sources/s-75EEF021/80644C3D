@@ -1,0 +1,27 @@
+{
+    "id": "80644C3D",
+    "path": "~/PROJETOS-GIT/word-cloud/script_word_cloud.R",
+    "project_path": "script_word_cloud.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1638717068311.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "30,38",
+        "scrollLine": "21"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1638717105,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1638717105682,
+    "read_only": false,
+    "read_only_alternatives": []
+}

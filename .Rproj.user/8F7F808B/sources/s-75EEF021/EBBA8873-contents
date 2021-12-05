@@ -1,0 +1,59 @@
+---
+title: "Mapeamento das árvores frutíferas da Costa da Lagoa"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## **Sobre o projeto Frutos da Costa** `r emo::ji("banana")` `r emo::ji("avocado")` `r emo::ji("orange")`
+
+<div>
+
+#### O **objetivo** deste projeto é mapear as árvores frutíferas do Caminho histórico da comunidade da Costa da Lagoa, em Florianópolis, com a participação da comunidade.
+
+</div>
+
+<font color="green"><h3>Que sirva para alimentar quem tem fome e de motivação e fonte de sementes para que as pessoas plantem mais árvores **nativas**.</h3></font>
+
+<div>
+<img width="95%" src="./banner1.jpeg"/>
+<p type=13>*Arte de divulgação feita pela Mari.*</p>
+</div>
+
+
+A **comunidade está estabelecida** ao longo da margem oeste da Lagoa da Conceição. Foi reconhecida como comunidade tradicional de pescadores artesanais pela Lei Ordinária 9633/2014, da Prefeitura Municipal de Florianópolis. A comunidade da Costa da Lagoa é conhecida pela beleza cênica de suas paisagens, pela marcante cultura tradicional dos pescadores artesanais, benzedeiras e rendeiras e pelo não-convencional acesso à comunidade que se dá por meio de embarcações ou pelo caminho histórico em meio às belezas naturais da Mata Atlântica.
+
+O Caminho histórico foi tombado pelo Decreto Municipal 247/86. O caminho, também chamado de 'trilha', liga a comunidade da Costa da Lagoa ao Canto dos Araças, ambos às margens da Lagoa da Conceição. Nos últimos anos, com a crescente especulação imobiliária combinada com o aumento da atividade turística e com a carência de fiscalização, o caminho histórico vem se deteriorando rapidamente.
+
+No decorrer do Caminho Histórico da Costa da Lagoa, pode-se perceber ruinas e construções antigas, como o engenho do ponto 8 ou a famosa casa da Dona Loquinha. O percurso é dentro de uma bela mata cheia de espécies de plantas e de animais. Muitas aves podem ser vistas e/ou ouvidas como o [pica-pau-de-cabeça-amarela](https://www.wikiaves.com.br/wiki/pica-pau-de-cabeca-amarela), o [Aracuã-escamoso](https://www.wikiaves.com.br/wiki/aracua-escamoso), os [tucanos](https://www.wikiaves.com.br/wiki/tucano-de-bico-preto) (de bico verde e preto), o [saí-azul](https://www.wikiaves.com.br/wiki/sai-azul), dentre outras muitas. Também encontramos o [macaco-prego](https://pt.wikipedia.org/wiki/Macaco-prego-preto) que é um primata de porte médio, muito inteligente, cujo aumento populacional tem afetado negativamente os grupos humanos do entorno. Mais raramente, podem ser vistos [graxains](https://pt.wikipedia.org/wiki/Graxaim-do-mato), [capivaras](https://pt.wikipedia.org/wiki/Capivara), [pacas](https://pt.wikipedia.org/wiki/Paca), [gambás-de-orelha-preta](https://pt.wikipedia.org/wiki/Gamb%C3%A1-de-orelha-preta) e os [tamanduás-mirim](https://pt.wikipedia.org/wiki/Tamandu%C3%A1-mirim). Existem também outros animais vertebrados bonitinhos como os [lagartos teiú](https://pt.wikipedia.org/wiki/Teiú) e diversas serpentes.
+
+**A ideia de mapear as árvores frutiferas surgiu** de uma conversa com o amigo Euler Erse sobre sustentabilidade e segurança alimentar. Durante um *brain storming* surgiu uma pergunta fundamental que foi moldando a ideia conforme avançávamos no exercício da dialética. A pergunta primeira foi *"quais as árvores frutíferas que alimentam o homem existem na região da Costa da Lagoa?"*. Fizemos uma lista de espécies que já vimos aqui ou que sabíamos que existiam na região. Então, nos propomos a fazer um levantamento das espécies para termos certeza de quais e quantas eram. Para aumentar a resolução e qualidade da informação, resolvemos georreferenciar e depois mapear os dados.
+
+A partir daí, pensamos na **importância deste levantamento** e percebemos que ele poderia servir de justificativa para a [conservação da natureza](https://pt.wikipedia.org/wiki/Conserva%C3%A7%C3%A3o_da_natureza) na região. Este tipo de informação ainda é útil para grupos de coletores de sementes, estudantes, gestores ambientais e poderia ser base para monitoramento da biodiversidade e para recuperação de áreas degradadas. Além disso, torna disponível à população informações sobre os frutos que existem na região. Este projeto ainda está alinhado com o [ODS 2](https://odsbrasil.gov.br/objetivo/objetivo?n=2) (i.e. fome zero e agricultura sustentável) e o [ODS 15](https://odsbrasil.gov.br/objetivo/objetivo?n=15) (i.e. vida terrestre).
+
+Realizamos uma primeira saída de campo que durou uma manhã inteira. Partimos do portal no início do Caminho Histórico e fomos até a entrada do trapiche do ponto 7. Localizamos e pegamos as coordenadas de todas as árvores frutíferas que encontramos ao longo do caminho. Anotamos também o nome popular das espécies e a fase ontogenética em que elas se encontravam. Foi muito divertido realizar este trabalho de campo.
+
+Entretanto, durante o processamento dos dados, nosso querido amigo Euler voltou a fazer parte do grande ciclo inevitável da natureza. Infelizmente acabamos perdendo os dados coletados junto com o parceiro, mas as memórias daquela manhã hão de permanecer frescas pela excelente experiência junto ao saudoso Euler Erse.
+
+## **Projeto 2.0 - Qual a novidade?**
+
+Motivados pela importância do projeto resolvemos resgatar a ideia *agregando mais um objetivo* que é **envolver a comunidade** da Costa da Lagoa neste mapeamento. Com isso, será possível trocar experiências e conhecimentos, além de reforçar os laços entre os moradores, gerar consciência de coletividade e pertencimento local. 
+
+<div>
+<img width="75%" src="./coffe.png"/>
+<p type=13>*Café colhido e registrado na Costa da Lagoa pelo Marcio.*</p>
+</div>
+
+
+
+<footer><p class="small">
+
+<h3>Contatos:</h3>
+
+<div>
+<a href = "mailto:frutosdacosta@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+ <a href="https://instagram.com/frutos_da_costa" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+</div>
+</p></footer>
