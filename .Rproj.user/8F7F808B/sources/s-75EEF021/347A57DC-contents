@@ -2,11 +2,11 @@
 
 #### Tutorial desenvolvido por Marcio Baldissera Cure.
 
-</BR>
+
 
 #### Este tutorial vai te ensinar como criar uma núvem de palavras de forma simples utilizando o R e o RStudio.
 
-- Se você ainda não possuir instalado no computador, é preciso instalar o R e depois o RStudio. O R pode ser baixado [AQUI](https://www.r-project.org/) e o RStudio [AQUI](https://www.rstudio.com/products/rstudio/#rstudio-desktop).
+- Se você ainda não tiver os pacotes instalados no seu computador, é preciso instalar o R e depois o RStudio. O R pode ser baixado [AQUI](https://www.r-project.org/) e o RStudio [AQUI](https://www.rstudio.com/products/rstudio/#rstudio-desktop).
 
 #### Para criar uma núvem de palavras utilizei os dados do Projeto Frutos da Costa, uma iniciativa independente para mapear as árvores frutíferas em uma Comunidade Tradicional de pescadores artesanais em Florianópolis, SC. 
 
@@ -15,9 +15,9 @@
 #### Este tutorial, assim como o script e os dados estão disponíveis em <https://github.com/Mauritia-flexuosa/word-cloud>.
 
 
-- *Observação 1:* Eu também estou utilizando (eventualmente) neste tutorial um recurso que pode ser encotrado dentro do pacote ```tidyverse``` que é o chamado _pipe_ (```%>%```). Ele encadeia funções. Talvez sua utilidade não fique bem clara neste tutorial, mas ele com certeza será útil no futuro, então, vá se acostumando. ;)
+- *Observação 1:* Eu utilizo (eventualmente) neste tutorial um recurso que pode ser encotrado dentro do pacote ```tidyverse``` que é o chamado _pipe_ (```%>%```). Ele encadeia funções. Talvez sua utilidade não fique bem clara neste tutorial, mas ele com certeza será útil no futuro, então, vá se acostumando. ;)
 
-- *Observação 2:* Os parâmetros das funções, juntamente com as instruções para usá-las podem ser acessadas com o comando ?função, por exemplo ```?wordcloud```.
+- *Observação 2:* Os parâmetros das funções, juntamente com as instruções para usá-las podem ser acessadas com o comando ```?função```, por exemplo ```?wordcloud```.
 
 Ok, sem mais delongas...
 
@@ -37,20 +37,22 @@ library(wordcloud)
 library(tm)
 ```
 
-- Se não tiver os pacotes, o comando para carregar é 'install.packages', com o nome do pacote entre aspas dentro dos parênteses. Exemplo: ```install.packages("RColorBrewer")```.
+- Se os pacotes não forem previamente baixados, o comando ```library``` para carregar os pacotes não funcionará. É preciso usar a função ```install.packages```, com o nome do pacote entre aspas dentro dos parênteses. Exemplo: ```install.packages("RColorBrewer")```.
 
 ### 2. Carregar os dados:
 
-- Primeiro, vamos atribuir a tabela chamada de _dados.txt_ a um objeto chamado de _dados_.
+- Primeiro, vamos atribuir a tabela chamada de _dados_1.txt_ a um objeto chamado de _dados_.
 
 
 ```{r}
 dados <-  read.table("dados_1.txt", h = T)
 ```
 
-- Note que o argumento que vai entre as aspas ("argumento") é o endereço do arquivo dentro do seu computador. Como os meus dados estão armazenados em uma tabela que está dentro do meu diretório de trabalho.
+- Note que o argumento que vai entre as aspas ("argumento") é o endereço do arquivo dentro do seu computador. O`s meus dados estão armazenados em uma tabela que está dentro do meu diretório de trabalho.
 
-- Para ver o seu diretório de trabalho, ou seja, a pasta que o R entende que você está trabalhando, basta executar o comando ```getwd()```. Por exemplo, quando eu executo este comando, aparece a pasta do meu computador onde está a tabela de dados. Exemplo: ```r getwd()```.
+- Para ver o seu diretório de trabalho, ou seja, a pasta que o R entende que você está trabalhando, basta executar o comando ```getwd()```. Por exemplo, quando eu executo este comando, aparece a pasta do meu computador onde está a tabela de dados. Exemplo: ```r getwd()```:
+
+```[1] "/home/marcio/PROJETOS-GIT/word-cloud"```
 
 Você pode determinar a sua pasta de trabalho, ou seja, o seu diretório de trabalho, utilizando a função ```setwd()``` com o endereço da pasta entre aspas dentro do parênteses. Por exemplo, ```setwd("/home/Documentos/pasta1")```.
 

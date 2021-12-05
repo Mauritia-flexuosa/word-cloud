@@ -2,11 +2,11 @@
 
 #### Tutorial desenvolvido por Marcio Baldissera Cure.
 
-</BR>
+
 
 #### Este tutorial vai te ensinar como criar uma núvem de palavras de forma simples utilizando o R e o RStudio.
 
-- Se você ainda não possuir instalado no computador, é preciso instalar o R e depois o RStudio. O R pode ser baixado [AQUI](https://www.r-project.org/) e o RStudio [AQUI](https://www.rstudio.com/products/rstudio/#rstudio-desktop).
+- Se você ainda não tiver os pacotes instalados no seu computador, é preciso instalar o R e depois o RStudio. O R pode ser baixado [AQUI](https://www.r-project.org/) e o RStudio [AQUI](https://www.rstudio.com/products/rstudio/#rstudio-desktop).
 
 #### Para criar uma núvem de palavras utilizei os dados do Projeto Frutos da Costa, uma iniciativa independente para mapear as árvores frutíferas em uma Comunidade Tradicional de pescadores artesanais em Florianópolis, SC. 
 
@@ -15,9 +15,9 @@
 #### Este tutorial, assim como o script e os dados estão disponíveis em <https://github.com/Mauritia-flexuosa/word-cloud>.
 
 
-- *Observação 1:* Eu também estou utilizando (eventualmente) neste tutorial um recurso que pode ser encotrado dentro do pacote ```tidyverse``` que é o chamado _pipe_ (```%>%```). Ele encadeia funções. Talvez sua utilidade não fique bem clara neste tutorial, mas ele com certeza será útil no futuro, então, vá se acostumando. ;)
+- *Observação 1:* Eu utilizo (eventualmente) neste tutorial um recurso que pode ser encotrado dentro do pacote ```tidyverse``` que é o chamado _pipe_ (```%>%```). Ele encadeia funções. Talvez sua utilidade não fique bem clara neste tutorial, mas ele com certeza será útil no futuro, então, vá se acostumando. ;)
 
-- *Observação 2:* Os parâmetros das funções, juntamente com as instruções para usá-las podem ser acessadas com o comando ?função, por exemplo ```?wordcloud```.
+- *Observação 2:* Os parâmetros das funções, juntamente com as instruções para usá-las podem ser acessadas com o comando ```?função```, por exemplo ```?wordcloud```.
 
 Ok, sem mais delongas...
 
@@ -37,20 +37,22 @@ library(wordcloud)
 library(tm)
 ```
 
-- Se não tiver os pacotes, o comando para carregar é 'install.packages', com o nome do pacote entre aspas dentro dos parênteses. Exemplo: ```install.packages("RColorBrewer")```.
+- Se os pacotes não forem previamente baixados, o comando ```library``` para carregar os pacotes não funcionará. É preciso usar a função ```install.packages```, com o nome do pacote entre aspas dentro dos parênteses. Exemplo: ```install.packages("RColorBrewer")```.
 
 ### 2. Carregar os dados:
 
-- Primeiro, vamos atribuir a tabela chamada de _dados.txt_ a um objeto chamado de _dados_.
+- Primeiro, vamos atribuir a tabela chamada de _dados_1.txt_ a um objeto chamado de _dados_.
 
 
 ```{r}
 dados <-  read.table("dados_1.txt", h = T)
 ```
 
-- Note que o argumento que vai entre as aspas ("argumento") é o endereço do arquivo dentro do seu computador. Como os meus dados estão armazenados em uma tabela que está dentro do meu diretório de trabalho.
+- Note que o argumento que vai entre as aspas ("argumento") é o endereço do arquivo dentro do seu computador. O`s meus dados estão armazenados em uma tabela que está dentro do meu diretório de trabalho.
 
-- Para ver o seu diretório de trabalho, ou seja, a pasta que o R entende que você está trabalhando, basta executar o comando ```getwd()```. Por exemplo, quando eu executo este comando, aparece a pasta do meu computador onde está a tabela de dados. Exemplo: ```r getwd()```.
+- Para ver o seu diretório de trabalho, ou seja, a pasta que o R entende que você está trabalhando, basta executar o comando ```getwd()```. Por exemplo, quando eu executo este comando, aparece a pasta do meu computador onde está a tabela de dados. Exemplo: ```r getwd()```:
+
+```[1] "/home/marcio/PROJETOS-GIT/word-cloud"```
 
 Você pode determinar a sua pasta de trabalho, ou seja, o seu diretório de trabalho, utilizando a função ```setwd()``` com o endereço da pasta entre aspas dentro do parênteses. Por exemplo, ```setwd("/home/Documentos/pasta1")```.
 
@@ -60,21 +62,66 @@ Você pode determinar a sua pasta de trabalho, ou seja, o seu diretório de trab
 - Você pode explorar os dados de diferentes formas. Saiba o nome das colunas e o que tem nas linhas iniciais usando a função ```head```:
 
 ```{r}
-dados %>% head
+dados %>% head 
 ```
 
+```
+nome_popular       nome_científico fase_ontogenetica srtm data_coleta
+1        Limão             Citrus_sp            adulto  22m  2021-10-07
+2        Pinha Annona_neosalicifolia            adulto  19m  2021-10-07
+3       Jerivá Syagrus_romanzoffiana            adulto  21m  2021-10-07
+4         Ingá          Inga_striata           juvenil  23m  2021-10-07
+5         Café             Coffea_sp            adulto  24m  2021-10-07
+6        Pinha Annona_neosalicifolia            adulto  24m  2021-10-07
+              obs       lon       lat
+1            <NA> -48.45746 -27.58093
+2            <NA> -48.45745 -27.58080
+3 dois_indivíduos -48.45745 -27.58077
+4            <NA> -48.45742 -27.58075
+5            <NA> -48.45731 -27.58069
+6            <NA> -48.45733 -27.58062
+```
 
-... ou o bom e velho ```str```
+O bom e velho ```str``` ainda vai mostrar a classe dos dados (_data.frame_), número de observações, número de variáveis, quem são essas variáveis e alguns valores iniciais.
 
 ```{r}
 dados %>% str
 ```
 
-Mas o ```summary``` também é uma opção.
+```
+'data.frame':	297 obs. of  8 variables:
+ $ nome_popular     : chr  "Limão" "Pinha" "Jerivá" "Ingá" ...
+ $ nome_científico  : chr  "Citrus_sp" "Annona_neosalicifolia" "Syagrus_romanzoffiana" "Inga_striata" ...
+ $ fase_ontogenetica: chr  "adulto" "adulto" "adulto" "juvenil" ...
+ $ srtm             : chr  "22m" "19m" "21m" "23m" ...
+ $ data_coleta      : chr  "2021-10-07" "2021-10-07" "2021-10-07" "2021-10-07" ...
+ $ obs              : chr  NA NA "dois_indivíduos" NA ...
+ $ lon              : num  -48.5 -48.5 -48.5 -48.5 -48.5 ...
+ $ lat              : num  -27.6 -27.6 -27.6 -27.6 -27.6 ...
+ ```
+
+Mas o ```summary``` também é uma opção. Ele mostra as variáveis, número de observações, classe e a distribuição dos dados numéricos com valores máximos, mínimos, média, mediana e os demais quartis.
+
 ```{r}
 dados %>% summary
 ```
 
+```
+nome_popular       nome_científico    fase_ontogenetica      srtm          
+ Length:297         Length:297         Length:297         Length:297        
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+ data_coleta            obs                 lon              lat        
+ Length:297         Length:297         Min.   :-48.46   Min.   :-27.58  
+ Class :character   Class :character   1st Qu.:-48.46   1st Qu.:-27.58  
+ Mode  :character   Mode  :character   Median :-48.46   Median :-27.57  
+                                       Mean   :-48.46   Mean   :-27.57  
+                                       3rd Qu.:-48.46   3rd Qu.:-27.57  
+                                       Max.   :-48.46   Max.   :-27.57  
+```
 
 ### 4. Agora, vamos pegar o texto e criar um vetor para podermos organizar nossos dados e para que eles possam ser processados por outras funções, pois as funções, muitas vezes, trabalham com classes de objetos diferentes.
 
@@ -83,6 +130,9 @@ dados %>% summary
 ```{r}
 class(dados)
 ```
+
+```[1] "data.frame"```
+
 - Transformando para vetor ou para a classe ```VectorSource```:
 
 ```{r}
