@@ -2,7 +2,7 @@
 
 #### Tutorial desenvolvido por Marcio Baldissera Cure.
 
-
+</br>
 
 #### Este tutorial vai te ensinar como criar uma núvem de palavras de forma simples utilizando o R e o RStudio.
 
@@ -220,11 +220,11 @@ dev.off()
 
 #### **Pronto, está feita e salva a sua núvem de palavras.**
 
-</DIV>
+</div>
 
 #### Agora tente criar uma núvem com outros dados. Qualquer dúvida, entre em contato:
 
-</DIV>
+</div>
 
 <footer><p class="small">
 

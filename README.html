@@ -171,12 +171,12 @@ pre code {
 <h1>Como fazer uma núvem de palavras simples?</h1>
 <div id="tutorial-desenvolvido-por-marcio-baldissera-cure." class="section level4">
 <h4>Tutorial desenvolvido por Marcio Baldissera Cure.</h4>
-<p></BR></p>
+<p></br></p>
 </div>
 <div id="este-tutorial-vai-te-ensinar-como-criar-uma-núvem-de-palavras-de-forma-simples-utilizando-o-r-e-o-rstudio." class="section level4">
 <h4>Este tutorial vai te ensinar como criar uma núvem de palavras de forma simples utilizando o R e o RStudio.</h4>
 <ul>
-<li>Se você ainda não possuir instalado no computador, é preciso instalar o R e depois o RStudio. O R pode ser baixado <a href="https://www.r-project.org/">AQUI</a> e o RStudio <a href="https://www.rstudio.com/products/rstudio/#rstudio-desktop">AQUI</a>.</li>
+<li>Se você ainda não tiver os pacotes instalados no seu computador, é preciso instalar o R e depois o RStudio. O R pode ser baixado <a href="https://www.r-project.org/">AQUI</a> e o RStudio <a href="https://www.rstudio.com/products/rstudio/#rstudio-desktop">AQUI</a>.</li>
 </ul>
 </div>
 <div id="para-criar-uma-núvem-de-palavras-utilizei-os-dados-do-projeto-frutos-da-costa-uma-iniciativa-independente-para-mapear-as-árvores-frutíferas-em-uma-comunidade-tradicional-de-pescadores-artesanais-em-florianópolis-sc." class="section level4">
@@ -188,8 +188,8 @@ pre code {
 <div id="este-tutorial-assim-como-o-script-e-os-dados-estão-disponíveis-em-httpsgithub.commauritia-flexuosaword-cloud." class="section level4">
 <h4>Este tutorial, assim como o script e os dados estão disponíveis em <a href="https://github.com/Mauritia-flexuosa/word-cloud" class="uri">https://github.com/Mauritia-flexuosa/word-cloud</a>.</h4>
 <ul>
-<li><p><em>Observação 1:</em> Eu também estou utilizando (eventualmente) neste tutorial um recurso que pode ser encotrado dentro do pacote <code>tidyverse</code> que é o chamado <em>pipe</em> (<code>%&gt;%</code>). Ele encadeia funções. Talvez sua utilidade não fique bem clara neste tutorial, mas ele com certeza será útil no futuro, então, vá se acostumando. ;)</p></li>
-<li><p><em>Observação 2:</em> Os parâmetros das funções, juntamente com as instruções para usá-las podem ser acessadas com o comando ?função, por exemplo <code>?wordcloud</code>.</p></li>
+<li><p><em>Observação 1:</em> Eu utilizo (eventualmente) neste tutorial um recurso que pode ser encotrado dentro do pacote <code>tidyverse</code> que é o chamado <em>pipe</em> (<code>%&gt;%</code>). Ele encadeia funções. Talvez sua utilidade não fique bem clara neste tutorial, mas ele com certeza será útil no futuro, então, vá se acostumando. ;)</p></li>
+<li><p><em>Observação 2:</em> Os parâmetros das funções, juntamente com as instruções para usá-las podem ser acessadas com o comando <code>?função</code>, por exemplo <code>?wordcloud</code>.</p></li>
 </ul>
 <p>Ok, sem mais delongas…</p>
 </div>
@@ -206,19 +206,20 @@ library(RColorBrewer)
 library(wordcloud)
 library(tm)</code></pre>
 <ul>
-<li>Se não tiver os pacotes, o comando para carregar é ‘install.packages’, com o nome do pacote entre aspas dentro dos parênteses. Exemplo: <code>install.packages(&quot;RColorBrewer&quot;)</code>.</li>
+<li>Se os pacotes não forem previamente baixados, o comando <code>library</code> para carregar os pacotes não funcionará. É preciso usar a função <code>install.packages</code>, com o nome do pacote entre aspas dentro dos parênteses. Exemplo: <code>install.packages(&quot;RColorBrewer&quot;)</code>.</li>
 </ul>
 </div>
 <div id="carregar-os-dados" class="section level3">
 <h3>2. Carregar os dados:</h3>
 <ul>
-<li>Primeiro, vamos atribuir a tabela chamada de <em>dados.txt</em> a um objeto chamado de <em>dados</em>.</li>
+<li>Primeiro, vamos atribuir a tabela chamada de <em>dados_1.txt</em> a um objeto chamado de <em>dados</em>.</li>
 </ul>
 <pre class="{r}"><code>dados &lt;-  read.table(&quot;dados_1.txt&quot;, h = T)</code></pre>
 <ul>
-<li><p>Note que o argumento que vai entre as aspas (“argumento”) é o endereço do arquivo dentro do seu computador. Como os meus dados estão armazenados em uma tabela que está dentro do meu diretório de trabalho.</p></li>
-<li><p>Para ver o seu diretório de trabalho, ou seja, a pasta que o R entende que você está trabalhando, basta executar o comando <code>getwd()</code>. Por exemplo, quando eu executo este comando, aparece a pasta do meu computador onde está a tabela de dados. Exemplo: <code>r getwd()</code>.</p></li>
+<li><p>Note que o argumento que vai entre as aspas (“argumento”) é o endereço do arquivo dentro do seu computador. O`s meus dados estão armazenados em uma tabela que está dentro do meu diretório de trabalho.</p></li>
+<li><p>Para ver o seu diretório de trabalho, ou seja, a pasta que o R entende que você está trabalhando, basta executar o comando <code>getwd()</code>. Por exemplo, quando eu executo este comando, aparece a pasta do meu computador onde está a tabela de dados. Exemplo: <code>r getwd()</code>:</p></li>
 </ul>
+<p><code>[1] &quot;/home/marcio/PROJETOS-GIT/word-cloud&quot;</code></p>
 <p>Você pode determinar a sua pasta de trabalho, ou seja, o seu diretório de trabalho, utilizando a função <code>setwd()</code> com o endereço da pasta entre aspas dentro do parênteses. Por exemplo, <code>setwd(&quot;/home/Documentos/pasta1&quot;)</code>.</p>
 </div>
 <div id="explore-os-dados-para-ver-se-está-tudo-ok" class="section level3">
@@ -226,11 +227,48 @@ library(tm)</code></pre>
 <ul>
 <li>Você pode explorar os dados de diferentes formas. Saiba o nome das colunas e o que tem nas linhas iniciais usando a função <code>head</code>:</li>
 </ul>
-<pre class="{r}"><code>dados %&gt;% head</code></pre>
-<p>… ou o bom e velho <code>str</code></p>
+<pre class="{r}"><code>dados %&gt;% head </code></pre>
+<pre><code>nome_popular       nome_científico fase_ontogenetica srtm data_coleta
+1        Limão             Citrus_sp            adulto  22m  2021-10-07
+2        Pinha Annona_neosalicifolia            adulto  19m  2021-10-07
+3       Jerivá Syagrus_romanzoffiana            adulto  21m  2021-10-07
+4         Ingá          Inga_striata           juvenil  23m  2021-10-07
+5         Café             Coffea_sp            adulto  24m  2021-10-07
+6        Pinha Annona_neosalicifolia            adulto  24m  2021-10-07
+              obs       lon       lat
+1            &lt;NA&gt; -48.45746 -27.58093
+2            &lt;NA&gt; -48.45745 -27.58080
+3 dois_indivíduos -48.45745 -27.58077
+4            &lt;NA&gt; -48.45742 -27.58075
+5            &lt;NA&gt; -48.45731 -27.58069
+6            &lt;NA&gt; -48.45733 -27.58062</code></pre>
+<p>O bom e velho <code>str</code> ainda vai mostrar a classe dos dados (<em>data.frame</em>), número de observações, número de variáveis, quem são essas variáveis e alguns valores iniciais.</p>
 <pre class="{r}"><code>dados %&gt;% str</code></pre>
-<p>Mas o <code>summary</code> também é uma opção.</p>
+<pre><code>&#39;data.frame&#39;:   297 obs. of  8 variables:
+ $ nome_popular     : chr  &quot;Limão&quot; &quot;Pinha&quot; &quot;Jerivá&quot; &quot;Ingá&quot; ...
+ $ nome_científico  : chr  &quot;Citrus_sp&quot; &quot;Annona_neosalicifolia&quot; &quot;Syagrus_romanzoffiana&quot; &quot;Inga_striata&quot; ...
+ $ fase_ontogenetica: chr  &quot;adulto&quot; &quot;adulto&quot; &quot;adulto&quot; &quot;juvenil&quot; ...
+ $ srtm             : chr  &quot;22m&quot; &quot;19m&quot; &quot;21m&quot; &quot;23m&quot; ...
+ $ data_coleta      : chr  &quot;2021-10-07&quot; &quot;2021-10-07&quot; &quot;2021-10-07&quot; &quot;2021-10-07&quot; ...
+ $ obs              : chr  NA NA &quot;dois_indivíduos&quot; NA ...
+ $ lon              : num  -48.5 -48.5 -48.5 -48.5 -48.5 ...
+ $ lat              : num  -27.6 -27.6 -27.6 -27.6 -27.6 ...</code></pre>
+<p>Mas o <code>summary</code> também é uma opção. Ele mostra as variáveis, número de observações, classe e a distribuição dos dados numéricos com valores máximos, mínimos, média, mediana e os demais quartis.</p>
 <pre class="{r}"><code>dados %&gt;% summary</code></pre>
+<pre><code>nome_popular       nome_científico    fase_ontogenetica      srtm          
+ Length:297         Length:297         Length:297         Length:297        
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+ data_coleta            obs                 lon              lat        
+ Length:297         Length:297         Min.   :-48.46   Min.   :-27.58  
+ Class :character   Class :character   1st Qu.:-48.46   1st Qu.:-27.58  
+ Mode  :character   Mode  :character   Median :-48.46   Median :-27.57  
+                                       Mean   :-48.46   Mean   :-27.57  
+                                       3rd Qu.:-48.46   3rd Qu.:-27.57  
+                                       Max.   :-48.46   Max.   :-27.57  </code></pre>
 </div>
 <div id="agora-vamos-pegar-o-texto-e-criar-um-vetor-para-podermos-organizar-nossos-dados-e-para-que-eles-possam-ser-processados-por-outras-funções-pois-as-funções-muitas-vezes-trabalham-com-classes-de-objetos-diferentes." class="section level3">
 <h3>4. Agora, vamos pegar o texto e criar um vetor para podermos organizar nossos dados e para que eles possam ser processados por outras funções, pois as funções, muitas vezes, trabalham com classes de objetos diferentes.</h3>
@@ -238,6 +276,7 @@ library(tm)</code></pre>
 <li>para ver a classe de um objeto, use a função <code>class()</code> com o objeto dentro dos parênteses. Por exemplo, veja abaixo que a classe do objeto (<em>dados</em>) que armazenamos os nossos dados é um <code>data.frame</code>.</li>
 </ul>
 <pre class="{r}"><code>class(dados)</code></pre>
+<p><code>[1] &quot;data.frame&quot;</code></p>
 <ul>
 <li>Transformando para vetor ou para a classe <code>VectorSource</code>:</li>
 </ul>
@@ -311,11 +350,11 @@ colors=brewer.pal(8, &quot;Dark2&quot;))
 dev.off()</code></pre>
 <div id="pronto-está-feita-e-salva-a-sua-núvem-de-palavras." class="section level4">
 <h4><strong>Pronto, está feita e salva a sua núvem de palavras.</strong></h4>
-</DIV>
+</div>
 </div>
 <div id="agora-tente-criar-uma-núvem-com-outros-dados.-qualquer-dúvida-entre-em-contato" class="section level4">
 <h4>Agora tente criar uma núvem com outros dados. Qualquer dúvida, entre em contato:</h4>
-</DIV>
+</div>
 <footer>
 <p class="small">
 <h3>
