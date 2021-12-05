@@ -30,22 +30,21 @@ Ok, sem mais delongas...
 ### 1. Carregar os pacotes necessários:
 
 
-```{r include=TRUE, echo=TRUE}
+```{r}
 library(tidyverse)
 library(RColorBrewer)
 library(wordcloud)
 library(tm)
-
 ```
 
-- Se não tiver os pacotes, o comando para carregar é 'install.packages', com o nome do pacote entre aspas dentro dos parênteses. Exemplo: ```  install.packages("RColorBrewer")```.
+- Se não tiver os pacotes, o comando para carregar é 'install.packages', com o nome do pacote entre aspas dentro dos parênteses. Exemplo: ```install.packages("RColorBrewer")```.
 
 ### 2. Carregar os dados:
 
 - Primeiro, vamos atribuir a tabela chamada de _dados.txt_ a um objeto chamado de _dados_.
 
 
-```{r echo=TRUE, include=TRUE}
+```{r}
 dados <-  read.table("dados_1.txt", h = T)
 ```
 
@@ -60,7 +59,7 @@ Você pode determinar a sua pasta de trabalho, ou seja, o seu diretório de trab
 
 - Você pode explorar os dados de diferentes formas. Saiba o nome das colunas e o que tem nas linhas iniciais usando a função ```head```:
 
-```{r echo=TRUE, include=TRUE}
+```{r}
 dados %>% head
 ```
 
@@ -81,12 +80,12 @@ dados %>% summary
 
 - para ver a classe de um objeto, use a função ```class()``` com o objeto dentro dos parênteses. Por exemplo, veja abaixo que a classe do objeto (_dados_) que armazenamos os nossos dados é um ```data.frame```. 
 
-```{r echo=TRUE, include=TRUE, warning=FALSE}
+```{r}
 class(dados)
 ```
 - Transformando para vetor ou para a classe ```VectorSource```:
 
-```{r echo=TRUE, include=TRUE}
+```{r}
 vetorTexto <- VectorSource(dados$nome_popular)
 ```
  
@@ -94,7 +93,7 @@ vetorTexto <- VectorSource(dados$nome_popular)
 
 - Agora, vamos pegar esse vetor que colocamos dentro do objeto chamado _vetorTexto_ e passar para a classe _Corpus_.
 
-```{r echo=TRUE}
+```{r}
 corpusTexto <- Corpus(vetorTexto)
 ```
 
@@ -102,7 +101,7 @@ corpusTexto <- Corpus(vetorTexto)
 
 - Esta etapa computa a frequência com que aparecem os termos dentro do corpus de texto e muda mais uma vez a classe do objeto que estamos trabalhando (não será a última). 
 
-```{r echo=TRUE}
+```{r}
 dtm <- TermDocumentMatrix(corpusTexto)
 ```
 
@@ -110,7 +109,7 @@ dtm <- TermDocumentMatrix(corpusTexto)
 
 - A partir do term-document matrix, vamos construir uma matrix  (i.e. classe 'matrix') binária com presença e auxência onde cada linha é uma "palavra" e cada coluna é uma unidade amostral.
 
-```{r echo=TRUE}
+```{r}
 matrix <- as.matrix(dtm)
 
 ```
@@ -118,7 +117,7 @@ matrix <- as.matrix(dtm)
 
 ### 8. Soma o número de linhas e coloca em ordem decrescente.
 
-```{r echo=TRUE}
+```{r}
 words <- sort(rowSums(matrix),decreasing=TRUE) 
 ```
 
@@ -136,11 +135,10 @@ df <- data.frame(word = names(words),freq=words)
 
 - Finalmente, visualize a núvem de palavras. É a núvel mais simples, mas mesmo assim já é alguma coisa.
 
-```{r include=TRUE, echo=TRUE, warning=FALSE}
-
+```{r}
 wordcloud(df$word)
-
 ```
+<img width="80%" src="fig_simples.png"/>
 
 ### 11. Melhorando a nossa núvem
 
@@ -148,9 +146,11 @@ wordcloud(df$word)
 
 - Então vamos deixar a núvem bonita ajustando os parâmetros da função que gera essa núvem.
 
-```{r echo=TRUE, include=TRUE}
-wordcloud(words = df$word, freq = df$freq, min.freq = 1, max.words=130, random.order=FALSE, rot.per=0.25, colors=brewer.pal(8, "Dark2"))
+```{r}
+wordcloud(words = df$word, freq = df$freq,min.freq = 1, max.words=130, random.order=FALSE,rot.per=0.25, colors=brewer.pal(8, "Dark2"))
 ```
+
+<img width="90%" src="nuvem_de_palavras.png"/>
 
 Podemos notar claramente as palavras mais frequêntes, ou seja, as árvores frutíferas que mais encontramos, que são o Ingá e a Pitanga.
 
@@ -158,13 +158,14 @@ Podemos notar claramente as palavras mais frequêntes, ou seja, as árvores frut
 
 - Para salvar a núvem de palavras no formato png, por exemplo, vamos utilizar a função ```png```. Entretanto, existem outras funções para salvar imagens geradas no R, como gráficos, mapas e outras figuras.
 
-```{r include=TRUE, warning=FALSE}
+```{r}
 png("nuvem_de_palavras.png", res = 300, width = 2000, height = 2000)
 
-wordcloud(words = df$word, freq = df$freq, min.freq = 1, max.words=130, random.order=FALSE, rot.per=0.25, colors=brewer.pal(8, "Dark2"))
+wordcloud(words = df$word, freq = df$freq,
+min.freq = 1, max.words=130, random.order=FALSE, rot.per=0.25,
+colors=brewer.pal(8, "Dark2"))
 
 dev.off()
-
 ```
 
 #### **Pronto, está feita e salva a sua núvem de palavras.**

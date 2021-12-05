@@ -43,6 +43,10 @@ df <- data.frame(word = names(words),freq=words)
 
 wordcloud(df$word)
 
+# png("fig_simples.png", res = 300, width = 2000, height = 2000)
+# wordcloud(df$word)
+# dev.off()
+
 # Deixa a núvem bonita ajustando os parâmetros:
 wordcloud(words = df$word, freq = df$freq, min.freq = 1, max.words=130, random.order=FALSE, rot.per=0.25, colors=brewer.pal(8, "Dark2"))
 
