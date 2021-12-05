@@ -1,7 +1,7 @@
----
-title: "Como fazer uma núvem de palavras simples?"
-subtitle: "Tutorial desenvolvido por Marcio Baldissera Cure."
----
+# Como fazer uma núvem de palavras simples?
+
+#### Tutorial desenvolvido por Marcio Baldissera Cure.
+
 </BR>
 
 #### Este tutorial vai te ensinar como criar uma núvem de palavras de forma simples utilizando o R e o RStudio.

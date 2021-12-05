@@ -3,9 +3,9 @@
     "path": "~/PROJETOS-GIT/word-cloud/script_word_cloud.R",
     "project_path": "script_word_cloud.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "2364732779",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1638717068311.0,
     "source_on_save": false,
     "relative_order": 1,
@@ -17,11 +17,11 @@
         "scrollLine": "39"
     },
     "folds": "",
-    "lastKnownWriteTime": 1638726881,
+    "lastKnownWriteTime": 1638727161,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1638726903482,
+    "last_content_update": 1638727161985,
     "read_only": false,
     "read_only_alternatives": []
 }

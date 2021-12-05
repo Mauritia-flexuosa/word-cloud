@@ -3,7 +3,7 @@
     "path": "~/PROJETOS-GIT/word-cloud/README.md",
     "project_path": "README.md",
     "type": "markdown",
-    "hash": "0",
+    "hash": "189743561",
     "contents": "",
     "dirty": false,
     "created": 1638725548269.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "140,13",
-        "scrollLine": "132"
+        "cursorPosition": "7,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1638726823,
+    "lastKnownWriteTime": 1638727165,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1638726823,
+    "last_content_update": 1638727165466,
     "read_only": false,
     "read_only_alternatives": []
 }
