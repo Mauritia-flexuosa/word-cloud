@@ -220,11 +220,11 @@ dev.off()
 
 #### **Pronto, está feita e salva a sua núvem de palavras.**
 
-</div>
+</br>
 
 #### Agora tente criar uma núvem com outros dados. Qualquer dúvida, entre em contato:
 
-</div>
+</br>
 
 <footer><p class="small">
 
